@@ -1,5 +1,7 @@
 import passport from "passport";
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
+const dote.v
+const GOOGLE_CLIENT_SECRET =  
 
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
