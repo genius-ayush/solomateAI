@@ -1,16 +1,37 @@
 import passport from "passport";
 var GoogleStrategy = require('passport-google-oauth20').Strategy;
-const dote.v
-const GOOGLE_CLIENT_SECRET =  
+//@ts-ignore
+import { PrismaClient } from './generated/prisma'
+const clientsecret =  process.env.GOOGLE_CLIENT_SECRET ; 
+const clientID = process.env.GOOGLE_CLIENT_ID ; 
+const url = process.env.CALLBACK_URL ; 
+const prisma = new PrismaClient() ; 
 
 passport.use(new GoogleStrategy({
-    clientID: GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback"
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return cb(err, user);
+  clientID: clientID,
+  clientSecret: clientsecret,
+  callbackURL: url
+},
+async (_accessToken : any, _refreshToken : any , profile : any, done : any ) => {
+  
+  try {
+    const existingUser = await prisma.user.findUnique({
+      where: { googleId: profile.id },
     });
+
+    if (existingUser) return done(null, existingUser);
+
+    const newUser = await prisma.user.create({
+      data: {
+        googleId: profile.id,
+        email: profile.emails?.[0].value || '',
+        name: profile.displayName,
+      },
+    });
+
+    return done(null, newUser);
+  } catch (err) {
+    return done(err, null);
   }
-)); 
+}
+));

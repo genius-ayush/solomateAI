@@ -7,11 +7,13 @@ import messageRoutes from './routers/message' ;
 import partnerRoutes from './routers/partner' ; 
 import subscriptionRoutes from './routers/subscription' ; 
 import userRoutes from './routers/user' ;
+import passport from "passport";
 
+dotenv.config() ; 
 const app = express() ; 
 const port = 3000 ; 
 
-app.use(cors()); 
+app.use(cors()) ; 
 app.use(express.json()) ; 
 
 app.use(session({
@@ -19,6 +21,8 @@ app.use(session({
     resave : false , 
     saveUninitialized : true , 
 }))
+
+app.use(passport.initialize());
 
 // app.use(passport.initialize()) ; 
 // app.use(passport.session()) ; 
