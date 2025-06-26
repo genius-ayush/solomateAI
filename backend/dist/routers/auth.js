@@ -1,17 +1,29 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+require("../auth/google");
 const express_1 = require("express");
+const passport_1 = __importDefault(require("passport"));
+const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+const middleware_1 = require("../middleware");
 const router = (0, express_1.Router)();
 //Initiates Google login
-router.get('/auth/google', () => {
-});
+router.get("/google", passport_1.default.authenticate("google", { scope: ["profile", "email"] }));
 //Handles callback + creates user + returns JWT
-router.get("/auth/google/callback", (req, res) => {
+router.get("/google/callback", passport_1.default.authenticate("google", { session: false, failureRedirect: "/" }), (req, res) => {
+    const user = req.user;
+    const token = jsonwebtoken_1.default.sign({ id: user.id }, process.env.JWT_SECRET, {
+        expiresIn: "7d",
+    });
+    res.redirect(`${process.env.FRONTEND_URL}/auth/success?token=${token}`);
 });
 //Clears session or token
-router.post("/auth/logout", (req, res) => {
+router.post("/logout", (req, res) => {
 });
 // return user info if jwt is valid
-router.get("auth/me", (req, res) => {
+router.get("/me", middleware_1.authenticateToken, (req, res) => {
+    res.json({ user: req.user });
 });
 exports.default = router;

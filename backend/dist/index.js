@@ -12,9 +12,10 @@ const message_1 = __importDefault(require("./routers/message"));
 const partner_1 = __importDefault(require("./routers/partner"));
 const subscription_1 = __importDefault(require("./routers/subscription"));
 const user_1 = __importDefault(require("./routers/user"));
+const passport_1 = __importDefault(require("passport"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
-const port = 3000;
+const port = 5000;
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use((0, express_session_1.default)({
@@ -22,6 +23,7 @@ app.use((0, express_session_1.default)({
     resave: false,
     saveUninitialized: true,
 }));
+app.use(passport_1.default.initialize());
 // app.use(passport.initialize()) ; 
 // app.use(passport.session()) ; 
 app.use('/auth', auth_1.default);

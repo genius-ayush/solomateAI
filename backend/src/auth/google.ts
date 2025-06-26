@@ -1,7 +1,9 @@
 import passport from "passport";
-var GoogleStrategy = require('passport-google-oauth20').Strategy;
+import { PrismaClient  } from '@prisma/client'
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 //@ts-ignore
-import { PrismaClient } from './generated/prisma'
+// import { PrismaClient } from './generated/prisma'
+
 const clientsecret =  process.env.GOOGLE_CLIENT_SECRET ; 
 const clientID = process.env.GOOGLE_CLIENT_ID ; 
 const url = process.env.CALLBACK_URL ; 

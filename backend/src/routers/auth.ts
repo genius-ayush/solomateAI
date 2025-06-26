@@ -1,3 +1,4 @@
+import '../auth/google'
 import { Router } from "express";
 import passport from "passport";
 import jwt from "jsonwebtoken";
@@ -16,7 +17,7 @@ router.get("/google/callback" , passport.authenticate("google", { session: false
     const token = jwt.sign({id: user.id} , process.env.JWT_SECRET!,{
         expiresIn:"7d" ,
     }); 
-
+    console.log("token")
     res.redirect(`${process.env.FRONTEND_URL}/auth/success?token=${token}`);
 })
 
