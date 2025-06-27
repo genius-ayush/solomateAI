@@ -1,20 +1,10 @@
 import { Router } from "express";
+import { authenticateToken } from "../middleware";
+import { getCurrentuser } from "../controllers/userController";
 const router = Router() ; 
 
 // get current user (from jwt)
-router.get('/c_user' , (req , res)=>{
+router.get('/me' ,authenticateToken, getCurrentuser)
 
-})
-
-
-// list all parenter of user
-router.get("/c_user/partners" , (req , res)=>{
-
-})
-
-// get a specific partner of user
-router.get("user/partner/:id" , (req , res)=> {
-
-})
 
 export default router ; 

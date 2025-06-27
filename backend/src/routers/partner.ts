@@ -1,21 +1,21 @@
 import { Router } from "express";
+import{
+    createPartner , 
+    getPartners , 
+    getPartnerById , 
+    updatePartner , 
+    deletePartner,
+} from "../controllers/partnerController"
+import { authenticateToken } from "../middleware";
+
 const router = Router() ; 
 
-//create a new partner
-router.post("/partners" , (req , res)=>{
+router.use(authenticateToken) ; 
 
-})
-
-// update a partner
-router.put("/partners/:id" , (req , res)=>{
-
-})
-
-
-// delete a pertner
-router.delete("/partners/:id" , (req , res)=>{
-
-})
-
+router.post("/" , createPartner) ;
+router.get("/" , getPartners) ; 
+router.get("/:id" , getPartnerById) ; 
+router.put("/:id" , updatePartner) ; 
+router.delete(":/id" , deletePartner) ; 
 
 export default router ; 
