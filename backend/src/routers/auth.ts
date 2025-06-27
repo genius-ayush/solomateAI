@@ -17,7 +17,11 @@ router.get("/google/callback" , passport.authenticate("google", { session: false
     const token = jwt.sign({id: user.id} , process.env.JWT_SECRET!,{
         expiresIn:"7d" ,
     }); 
-    console.log("token")
+    console.log(token)
+    console.log(user) ; 
+    // res.status(201).json({
+    //     token ,userId: user.id ,user: user , message : "user create successfully"
+    // })
     res.redirect(`${process.env.FRONTEND_URL}/auth/success?token=${token}`);
 })
 

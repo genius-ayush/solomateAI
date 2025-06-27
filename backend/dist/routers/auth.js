@@ -17,6 +17,11 @@ router.get("/google/callback", passport_1.default.authenticate("google", { sessi
     const token = jsonwebtoken_1.default.sign({ id: user.id }, process.env.JWT_SECRET, {
         expiresIn: "7d",
     });
+    console.log(token);
+    console.log(user);
+    // res.status(201).json({
+    //     token ,userId: user.id ,user: user , message : "user create successfully"
+    // })
     res.redirect(`${process.env.FRONTEND_URL}/auth/success?token=${token}`);
 });
 //Clears session or token
