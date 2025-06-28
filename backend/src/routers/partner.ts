@@ -16,6 +16,6 @@ router.post("/" , createPartner) ;
 router.get("/" , getPartners) ; 
 router.get("/:id" , getPartnerById) ; 
 router.put("/:id" , updatePartner) ; 
-router.delete(":/id" , deletePartner) ; 
+router.delete("/:id" , deletePartner) ; 
 
 export default router ; 

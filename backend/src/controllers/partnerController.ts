@@ -37,9 +37,20 @@ export const getPartnerById = async(req:Request , res:Response)=>{
     res.json(partner) ; 
 }
 
+export const updatePartner = async(req:Request , res:Response)=>{
+
+    const {id} = req.params ; 
+    const data = req.body ; 
+    // console.log(id) ; 
+    // console.log(data) ; 
+    const updated = await  prisma.partner.update({where:{id} , data}) ; 
+    res.json(updated) ; 
+}
+
 export const deletePartner = async(req:Request , res:Response)=>{
 
     const {id} = req.params ;
+    // console.log("id") ; 
     await prisma.partner.delete({where:{id}}) ; 
     res.sendStatus(204) ; 
 }

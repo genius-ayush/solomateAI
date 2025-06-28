@@ -1,15 +1,12 @@
 import { Router } from "express";
+import { authenticateToken } from "../middleware";
+import{sendMessage , getMessagesForPartner} from "../controllers/messageController"
 const router = Router() ; 
 
-// get all messages for a partner
-router.get("messages/:partnerId" , (req , res)=>{
+router.use(authenticateToken) ; 
 
-})
+router.post("/" , sendMessage) ;
 
-
-//send a message and get ai response
-router.post("messages/:partnerId" , (req , res)=>{
-
-})
+router.get("/:partnerId" , getMessagesForPartner) ; 
 
 export default router ; 

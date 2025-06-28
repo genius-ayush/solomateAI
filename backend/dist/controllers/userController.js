@@ -14,7 +14,7 @@ const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 const getCurrentuser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = req.user.id;
-    console.log(req.user);
+    // console.log(req.user) ; 
     const user = yield prisma.user.findUnique({
         where: { id: userId },
         select: { id: true, email: true, name: true },
