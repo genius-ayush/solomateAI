@@ -1,11 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
+const middleware_1 = require("../middleware");
+const messageController_1 = require("../controllers/messageController");
 const router = (0, express_1.Router)();
-// get all messages for a partner
-router.get("messages/:partnerId", (req, res) => {
-});
-//send a message and get ai response
-router.post("messages/:partnerId", (req, res) => {
-});
+router.use(middleware_1.authenticateToken);
+router.post("/", messageController_1.sendMessage);
+router.get("/:partnerId", messageController_1.getMessagesForPartner);
 exports.default = router;

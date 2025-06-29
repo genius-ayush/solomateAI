@@ -52,7 +52,7 @@ const updatePartner = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.updatePartner = updatePartner;
 const deletePartner = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { id } = req.params;
-    console.log("id");
+    // console.log("id") ; 
     yield prisma.partner.delete({ where: { id } });
     res.sendStatus(204);
 });
