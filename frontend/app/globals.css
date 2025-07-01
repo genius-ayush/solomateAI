@@ -43,6 +43,46 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+@theme {
+  --color-color-1: #ac6aff;
+  --color-color-2: #ffc876;
+  --color-color-3: #ff776f;
+  --color-color-4: #7adb78;
+  --color-color-5: #858dff;
+  --color-color-6: #ff98e2;
+  --color-stroke-1: #26242C;
+  --color-n-1: #FFFFFF;
+  --color-n-2: #CAC6DD;
+  --color-n-3: #ADA8C3;
+  --color-n-4: #757185;
+  --color-n-5: #3F3A52;
+  --color-n-6: #252134;
+  --color-n-7: #15131D;
+  --color-n-8: #0E0C15;
+  --color-n-9: #474060;
+  --color-n-10: #43435C;
+  --color-n-11: #1B1B2E;
+  --color-n-12: #2E2A41;
+  --color-n-13: #6C7275;
+  
+  --font-sans: "Sora", sans-serif;
+  --font-code: "Source Code Pro", "monospace";
+  --font-grotesk: "Space Grotesk", "sans-serif";
+  
+  --tracking-tagline: .15em;
+  
+  --spacing-0.25: 0.0625rem;
+  --spacing-7.5: 1.875rem;
+  --spacing-15: 3.75rem;
+  --border-default: 0.0625rem;
+  
+  --opacity-15: .15%;
+  
+  --default-transition-duration: 200ms;
+  --default-transition-timing-function: "linear";
+  
+  }
+
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);

@@ -15,7 +15,7 @@ const openai = new OpenAI({
 
 export const OpenAIService = {
     
-    async generateMessage(role:string )
+    // async generateMessage(role:string )
 }
 
 
@@ -42,7 +42,7 @@ export const sendMessage = async(req:Request , res:Response)=>{
 
     const  systemPrompt = `you are ${partner.name} an AI partner with personality traits: ${personality}. Respond in a tone that is caring , emptionlly supportive, and matches those traits`
 
-    const aiResponse = await 
+    // const aiResponse = await 
 }
 
 export const getMessagesForPartner = async(req : Request , res:Response)=>{
