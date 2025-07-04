@@ -66,8 +66,8 @@ export const socials = [
   export const roadmap = [
     {
       id: "0",
-      title: "Empirical Iteration",
-      text: "Our research embraces rapid hypothesis testing and continuous refinement, prioritizing methodical iteration on findings over single interventions",
+      title: "Emotional Intelligence",
+      text: "It’s not just smart—it understands how you feel and responds with empathy, care, and nuance to create truly meaningful conversations.",
       date: "May 2023",
       status: "done",
       imageUrl: roadmap1,
@@ -75,26 +75,41 @@ export const socials = [
     },
     {
       id: "1",
-      title: "Human Expertise Primacy",
-      text: "AWe hold that human-generated data contains cognitive patterns and expertise that cannot be replicated through synthetic generation or web scraping.",
+      title: "Always Available",
+      text: "Whether it’s 2 AM or during your lunch break, your AI companion is always here to listen, support, and chat—whenever you need it.",
       date: "May 2023",
       status: "progress",
       imageUrl: roadmap2,
     },
     {
       id: "2",
-      title: "Practitioner Verification",
-      text: "We maintain rigorous standards for domain experts, ensuring validation by individuals with demonstrated field expertise.",
+      title: "Continuous Learning",
+      text: "The more you interact, the more it understands your preferences, personality, and needs—growing with you over time to become your perfect companion.",
       date: "May 2023",
       status: "done",
       imageUrl: roadmap3,
     },
     {
       id: "3",
-      title: "Adaptive Methodology",
-      text: "Our approach scales dynamically to address both targeted capability gaps and broader questions about AI functionality.",
+      title: "Private & Secure",
+      text: "Every conversation stays between you and your AI. With strong encryption and privacy safeguards, your trust is always respected.",
       date: "May 2023",
       status: "progress",
       imageUrl: roadmap4,
     },
+  ];
+
+  export const pricing = [
+    {
+      id: "0",
+      title: "Connect with our Team",
+      description: "Experience the future of digital relationships with our advanced AI technology",
+      // price: "0",
+      features: [
+        "An AI chatbot that can understand your queries",
+        "Personalized recommendations based on your preferences",
+        "Ability to explore the app and its features without any cost",
+      ],
+    },
+    
   ];

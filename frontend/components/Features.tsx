@@ -5,13 +5,13 @@ import Section from "./Section";
 import TagLine from './Tagline';
 import { roadmap } from "../constants";
 import { check2 , grid , loading } from "@/public/assets";
-import { Gradient } from './ui/roadmap';
+import {  Gradient1 } from './ui/roadmap';
 import Image from "next/image";
 function Features() {
   return (
     <Section  id="features" >
     <div className="container md:pb-10">
-      <Heading tag="Why choose SoloMate?" title="Research Philosophy" />
+      <Heading tag="Why choose SoloMate?" title=" Features" />
 
       <div className="relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-[7rem]">
         {roadmap.map((item) => {
@@ -44,7 +44,7 @@ function Features() {
           );
         })}
 
-        <Gradient />
+        <Gradient1 />
       </div>
 
       
