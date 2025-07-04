@@ -1,8 +1,12 @@
 import React from 'react'
+import { Button } from './ui/button'
+import { Section } from 'lucide-react'
 
 function Hero() {
   return (
-    <div>Hero</div>
+    <Section >
+      hey there
+    </Section>
   )
 }
 
