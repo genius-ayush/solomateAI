@@ -14,11 +14,12 @@ router.get("/google", passport.authenticate("google", { scope: ["profile", "emai
 
 router.get("/google/callback" , passport.authenticate("google", { session: false, failureRedirect: "/" }) , (req , res)=>{
     const user = req.user as any ; 
+    console.log("token assign") ; 
     const token = jwt.sign({id: user.id} , process.env.JWT_SECRET!,{
         expiresIn:"7d" ,
     }); 
     
-    
+    console.log("reached") ; 
     res.redirect(`${process.env.FRONTEND_URL}/auth/success?token=${token}`);
 })
 

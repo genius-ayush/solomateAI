@@ -5,6 +5,6 @@ const middleware_1 = require("../middleware");
 const messageController_1 = require("../controllers/messageController");
 const router = (0, express_1.Router)();
 router.use(middleware_1.authenticateToken);
-router.post("/", messageController_1.sendMessage);
+// router.post("/" , sendMessage) ;
 router.get("/:partnerId", messageController_1.getMessagesForPartner);
 exports.default = router;

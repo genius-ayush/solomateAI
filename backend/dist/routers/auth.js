@@ -13,9 +13,11 @@ const router = (0, express_1.Router)();
 router.get("/google", passport_1.default.authenticate("google", { scope: ["profile", "email"] }));
 router.get("/google/callback", passport_1.default.authenticate("google", { session: false, failureRedirect: "/" }), (req, res) => {
     const user = req.user;
+    console.log("token assign");
     const token = jsonwebtoken_1.default.sign({ id: user.id }, process.env.JWT_SECRET, {
         expiresIn: "7d",
     });
+    console.log("reached");
     res.redirect(`${process.env.FRONTEND_URL}/auth/success?token=${token}`);
 });
 //Clears session or token

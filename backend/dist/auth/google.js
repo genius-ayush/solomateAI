@@ -27,6 +27,7 @@ passport_1.default.use(new GoogleStrategy({
     callbackURL: url
 }, (_accessToken, _refreshToken, profile, done) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
+    console.log(clientID);
     try {
         const existingUser = yield prisma.user.findUnique({
             where: { googleId: profile.id },

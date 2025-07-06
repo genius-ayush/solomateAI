@@ -5,7 +5,7 @@ const router = Router() ;
 
 router.use(authenticateToken) ; 
 
-router.post("/" , sendMessage) ;
+// router.post("/" , sendMessage) ;
 
 router.get("/:partnerId" , getMessagesForPartner) ; 
 
