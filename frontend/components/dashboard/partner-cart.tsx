@@ -7,7 +7,7 @@ function PartnerCard({ partner, onClick }: PartnerCardProps) {
     return (
         <div className='glass-card p-6 curson-pointer hover:bg-white/10 transition-all duration-300 transform hover:scale-105'>
             <div className='text-center mb-4'>
-                <div className='text-4xl mb-3'>{partner.avatar}</div>
+                <div className='text-4xl mb-3'>{partner.avatar}</div> 
                 <h3 className='text-xl font-semibold text-white'>{partner.name}</h3>
                 <p className='text-white/70 text-sm'>{partner.gender}</p>
             </div>

@@ -5,14 +5,20 @@ import { Plus } from 'lucide-react'
 import axios from 'axios';
 import { Partner } from '@/types';
 import PartnerCard from './partner-cart';
+import { useRouter } from "next/navigation"
 
 function Dashboard() {
     const token = localStorage.getItem("token");
+    const router = useRouter() ; 
     const [loading, setLoading] = useState(true);
     const [partners , setPartners] = useState<Partner[]>([]); 
 
     const handleChatWithPartner = (partnerId:string)=>{
         console.log({partnerId})
+    }
+
+    const handleCreateNew = ()=>{
+        router.push("onBoarding")
     }
 
     useEffect(() => {
@@ -22,7 +28,6 @@ function Dashboard() {
                     headers: { authorization: `Bearer ${token}` }
                 })
                 setPartners(response.data) ; 
-                console.log(response.data);
             } catch (error) {
                 console.error("Error fetching data", error)
             } finally {
@@ -50,7 +55,7 @@ function Dashboard() {
                         <p className="text-white/70">Choose a companion to start chatting</p>
                     </div>
                     <Button
-
+                        onClick={handleCreateNew}
                         className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
                     >
                         <Plus className="h-4 w-4 mr-2" />
@@ -63,7 +68,7 @@ function Dashboard() {
                         <div className='glass-card p-8 max-w-md mx-auto'>
                             <h3 className='text-xl font-semibold text-white   mb-4'>No companions yet</h3>
                             <p className='text-white/70 mb-6'>Create you first AI companion to get started</p>
-                            <Button className='bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:t0-pink-600'><Plus/> Create Your First Partner</Button>
+                            <Button onClick={handleCreateNew} className='bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:t0-pink-600'><Plus/> Create Your First Partner</Button>
                         </div>
                     </div>
                 ):(
