@@ -5,8 +5,8 @@ import Link from 'next/link'
 import MenuSvg from '@/public/assets/svg/MenuSvg'
 import { Handshake } from 'lucide-react';
 import { navigation } from '@/constants';
-import { HamburgerMenu } from './ui/header';
-import { Button } from './ui/button';
+import { HamburgerMenu } from '../ui/header';
+import { Button } from '../ui/button';
 //@ts-ignore
 import { disablePageScroll, enablePageScroll } from 'scroll-lock';
 
@@ -64,9 +64,9 @@ ${item.url === activeLink ? "z-2 lg:text-n-1"
           <HamburgerMenu />
         </nav>
 
-        <Button variant="ghost" className="text-purple-200 hover:text-color-1 hover:bg-n-8 border-2 hidden lg:flex bg-n-8 font-code font-semibold">
+        <Link href="/auth"><Button variant="ghost" className="text-purple-200 hover:text-color-1 hover:bg-n-8 border-2 hidden lg:flex bg-n-8 font-code font-semibold">
             GET STARTED
-        </Button>
+        </Button></Link>
 
         
         <Button className="ml-auto text-purple-200  hover:text-color-1 hover:bg-n-8 border-1 lg:hidden bg-n-8 " onClick={toggleNavigation}>

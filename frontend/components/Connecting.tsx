@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { pricing } from "../constants";
 // import Button from "./Button";
 import { Button } from "./ui/button";
@@ -18,9 +19,9 @@ const Connecting = () => {
 
           
 
-          <Button variant="ghost" className="text-purple-200 hover:text-color-1 hover:bg-n-8 border-1  lg:flex bg-n-8 uppercase font-code font-semibold mx-auto">
+          <Link href="/auth"><Button variant="ghost" className="text-purple-200 hover:text-color-1 hover:bg-n-8 border-1  lg:flex bg-n-8 uppercase font-code font-semibold mx-auto">
           Create your first companion
-        </Button>
+        </Button></Link>
 
           
         </div>

@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button } from './ui/button';
-import Heading from './Heading';
-import Section from "./Section";
-import TagLine from './Tagline';
-import { roadmap } from "../constants";
+import { Button } from '../ui/button';
+import Heading from '../Heading';
+import Section from "../Section";
+import TagLine from '../Tagline';
+import { roadmap } from '@/constants';
 import { check2 , grid , loading } from "@/public/assets";
-import {  Gradient1 } from './ui/roadmap';
+import {  Gradient1 } from '../ui/roadmap';
 import Image from "next/image";
 function Features() {
   return (

@@ -1,15 +1,16 @@
 'use client'
 import React, { useRef } from 'react'
-import { Button } from './ui/button'
-import Section from './Section'
+import { Button } from '../ui/button'
+import Section from '../Section'
 import { gradient, heroBackground } from '@/public/assets'
 import Image from 'next/image'
 import { curve, robot } from '@/public/assets'
 import hero2 from '@/public/assets/hero/hero2.png'
 
 import { BackgroundCircles, BottomLine, Gradient } from "@/components/ui/Hero";
-import CompanyLogos from './CompanyLogo'
-import { Gradient1 } from './ui/roadmap'
+import CompanyLogos from '../CompanyLogo'
+import { Gradient1 } from '../ui/roadmap'
+import Link from 'next/link'
 
 
 function Hero() {
@@ -38,7 +39,7 @@ function Hero() {
             Design, customize, and chat with AI partners tailored to your personality. Experience meaningful conversations with companions who understand you.
           </p>
 
-          <Button className='text-n-8 bg-white hover:text-purple-900 hover:bg-white font-code font-bold'>Start Creating</Button>
+          <Link href="/auth"><Button className='text-n-8 bg-white hover:text-purple-900 hover:bg-white font-code font-bold'>Start Creating</Button></Link>
         </div>
 
         <div className="relative max-w-[23rem] mx-auto md:max-w-5xl xl:mb-24">
