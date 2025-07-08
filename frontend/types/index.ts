@@ -9,10 +9,16 @@ export interface Partner extends PartnerData{
     id : string ;
     userId : string ; 
     messageCount ?: number ; 
-    createdAt : string 
+    createdAt : string ; 
 }
 
 export interface PartnerCardProps{
     partner: Partner ; 
     onClick : ()=> void ;
+}
+
+export interface Step1Props {
+    data: Partial<PartnerData> ; 
+    onNext : ()=> void ; 
+    onDataChange : (data:Partial<PartnerData>) => void
 }

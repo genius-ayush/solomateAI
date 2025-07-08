@@ -3,14 +3,27 @@ import React, { useState } from 'react'
 import { Label } from '../ui/label'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
+import { Step1Props } from '@/types'
 
 const avatars = ["👩", "👨", "🧑", "👩‍💼", "👨‍💼", "👩‍🎨", "👨‍🎨", "👩‍🔬", "👨‍🔬"]
 const genders = ["Female", "Male", "Non-binary"];
 
-function OnBoardingStep1() {
-    const [name, setName] = useState("");
-    const [selectedAvatar, setSelectedAvatar] = useState(avatars[0]);
-    const [selectGender, setSelectGender] = useState(genders[0]);
+function OnBoardingStep1({data , onNext , onDataChange}: Step1Props) {
+    const [name, setName] = useState(data.name || "");
+    const [selectedAvatar, setSelectedAvatar] = useState(data.avatar || avatars[0]);
+    const [selectGender, setSelectGender] = useState(data.gender || genders[0]);
+
+    const handleNext = ()=>{
+        onDataChange({
+            name , 
+            avatar : selectedAvatar , 
+            gender : selectGender, 
+        })
+
+        onNext() ; 
+    }
+
+    const isValid = name.trim().length > 0
 
     return (
         <div className='space-y-6'>
@@ -44,7 +57,8 @@ function OnBoardingStep1() {
                 </div>
 
                 <Button
-
+                    onClick={handleNext}
+                    disabled={!isValid}
                     className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600"
                 >
                     Next Step
