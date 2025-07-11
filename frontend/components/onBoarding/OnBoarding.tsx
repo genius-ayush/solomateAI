@@ -48,7 +48,7 @@ function OnBoarding() {
             )}
 
             {currentStep === 2 && (
-              <OnBoardingStep2/>
+              <OnBoardingStep2 data={partnerData} onNext={handleNext} onBack={handleBack} onDataChange={handleStepData}/>
             )}
 
             {currentStep === 3 && (

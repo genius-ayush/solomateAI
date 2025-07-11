@@ -22,3 +22,10 @@ export interface Step1Props {
     onNext : ()=> void ; 
     onDataChange : (data:Partial<PartnerData>) => void
 }
+
+export interface Step2Props{
+    data : Partial<PartnerData> ; 
+    onNext : () => void ; 
+    onBack : () => void ; 
+    onDataChange : (data:Partial<PartnerData>)=> void 
+}
